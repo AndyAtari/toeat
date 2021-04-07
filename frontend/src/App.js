@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from "react";
+import { render } from "react-dom";
 
-function App() {
+const toeatItems = [
+  {
+    id: 1,
+    title: "Choco Taco",
+    description: "Best Taco!",
+    completed: false,
+  },
+  {
+    id: 2,
+    title: "Panes Cookie",
+    description: "Monster Cookie!!",
+    completed: false,
+  },
+  {
+    id: 3, 
+    title: "Quesadilla",
+    description: "From Chipotle",
+    completed: true,
+  }
+];
+
+class App extends Component {
+  
+
+render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+  
     </div>
   );
 }
+}
 
-export default App;
+export default App; 
