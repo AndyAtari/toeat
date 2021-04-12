@@ -31,5 +31,55 @@ export default class CustomModal extends Component {
     this.setState({ activeItem });
   };
 
-  render() {}
+  render() {
+    const { toggle, onSave } = this.props;
+
+    return (
+      <Modal isOpen={true} toggle={toggle}>
+        <ModalHeader toggle={toggle}>Toeat Item</ModalHeader>
+        <ModalBody>
+          <Form>
+            <FormGroup>
+              <Label for="toeat-title">Title</Label>
+              <Input
+                type="text"
+                id="toeat-title"
+                name="title"
+                value={this.state.activeItem.title}
+                onChange={this.handleChange}
+                placeholder="Enter Toeat Title"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="toeat-description">Description</Label>
+              <Input
+                type="text"
+                id="toeat-description"
+                name="description"
+                value={this.state.activeItem.description}
+                onChange={this.handleChange}
+                placeholder="Enter Toeat description"
+              />
+            </FormGroup>
+            <FormGroup check>
+              <Label check>
+                <Input
+                  type="checkbox"
+                  name="completed"
+                  checked={this.state.activeItem.completed}
+                  onChange={this.handleChange}
+                />
+                Completed
+              </Label>
+            </FormGroup>
+          </Form>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="success" onClick={() => onSave(this.state.activeItem)}>
+            Save
+          </Button>
+        </ModalFooter>
+      </Modal>
+    );
+  }
 }
