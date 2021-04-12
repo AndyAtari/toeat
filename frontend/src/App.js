@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-// import { render } from "react-dom";
+import { render } from "react-dom";
+import Modal from "./components/Modal";
 
 const toeatItems = [
   {
@@ -28,8 +29,18 @@ class App extends Component {
     this.state = {
       viewCompleted: false,
       toeatList: toeatItems,
+      modal: false,
+      activeItem: {
+        title: "",
+        description: "",
+        completed: false,
+      },
     };
   }
+
+  toggle = () => {
+    this.setState({ modal: !this.state.modal });
+  };
 
   displayCompleted = (status) => {
     if (status) {
