@@ -1,33 +1,13 @@
 import React, { Component } from "react";
 import Modal from "./components/Modal";
-
-const toeatItems = [
-  {
-    id: 1,
-    title: "Choco Taco",
-    description: "Best Taco!",
-    completed: false,
-  },
-  {
-    id: 2,
-    title: "Panes Cookie",
-    description: "Monster Cookie!!",
-    completed: false,
-  },
-  {
-    id: 3,
-    title: "Quesadilla",
-    description: "From Chipotle",
-    completed: true,
-  },
-];
+import axios from "axios";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       viewCompleted: false,
-      toeatList: toeatItems,
+      toeatList: [],
       modal: false,
       activeItem: {
         title: "",
