@@ -35,10 +35,19 @@ class App extends Component {
   handleSubmit = (item) => {
     this.toggle();
 
+    if (item.id) {
+      axios
+        .put(`/api/toeats/${item.id}/`, item)
+        .then((res) => this.refreshList());
+      return;
+    }
+    axios.post("/api/toeats/", item).then((res) => this.refreshList());
+
     alert("save" + JSON.stringify(item));
   };
 
   handleDelete = (item) => {
+    axios.delete(`/api/toeats/${item.id}/`).then((res) => this.refreshList());
     alert("delete" + JSON.stringify(item));
   };
 
